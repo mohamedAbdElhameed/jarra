@@ -17,7 +17,7 @@ from django.conf.urls import url, include
 from django.contrib import admin
 from django.urls import path
 from rest_framework import routers
-from jar.views import MyUserView
+from jar.views import MyUserView, UserCreate, LoginView
 
 router = routers.DefaultRouter()
 router.register(r'userview', MyUserView)
@@ -25,5 +25,7 @@ router.register(r'userview', MyUserView)
 
 urlpatterns = [
     url(r'^', include(router.urls)),
+    #path("users/", UserCreate.as_view(), name="user_create"),
     path('admin/', admin.site.urls),
+    #path("login/", LoginView.as_view(), name="login"),
 ]
